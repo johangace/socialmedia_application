@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   end
 
   root to: "homes#show"
+  resources :shouts , only: [:create]
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, only: [:create]
-
+ 
   resources :users, only: [:create] do
     resource :password,
       controller: "clearance/passwords",
